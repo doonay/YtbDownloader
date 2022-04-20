@@ -25,12 +25,21 @@ class Screen(FloatLayout):
     cards = []
     img_count = 0
 
-    def get_thumb(self):
-        yt = YouTube('https://www.youtube.com/watch?v=lEAjwY5TAsE')
+    def on_text(self, link):
+        yt = YouTube(link)
+        thumb = yt.thumbnail_url
+        self.ids.thumb_img.source = thumb
+
+
+    def get_thumb(self, link):
+        yt = YouTube(link)
         print(yt.thumbnail_url)
 
     def find_video(self, link):
         print(link.text)
+        #self.get_thumb(link)
+        yt = YouTube('https://www.youtube.com/watch?v=lEAjwY5TAsE')
+        print(yt.thumbnail_url)
 
     def scan_games(self, year='22'):
         #year = self.textinput.text

@@ -6,6 +6,7 @@
 
     link: link_kv
     find: find_btn
+    thumb: thumb_img
 
     FitImage:
         source: 'assets/bg.jpg'
@@ -36,6 +37,8 @@
                 size_hint: .7, 1
                 multiline: False
                 hint_text: 'http://'
+                on_text:
+                    root.on_text(link_kv.text)
             Button:
                 id: find_btn
                 size_hint: .1, 1
@@ -50,6 +53,7 @@
             orientation: 'horizontal'
 
             FitImage:
+                id: thumb_img
                 source: 'assets/bg.jpg'
                 size_hint: .7, 1
                 #pos_hint: {'center_x': .5, 'center_y': .5}

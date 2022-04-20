@@ -19,22 +19,22 @@ def naming(old_name):
         return(old_name[x:])
 
 def tests():
-    link = input('Скопипасти сюда адрес видоса: ')
+    #link = input('Скопипасти сюда адрес видоса: ')
 
-    # yt = YouTube('https://www.youtube.com/watch?v=2Lq86MKesG4')
-    yt = YouTube(link, on_progress_callback=progress_function)
+    yt = YouTube('https://www.youtube.com/watch?v=lEAjwY5TAsE', on_progress_callback=progress_function,)
+    print(yt.thumbnail_url)
 
-    title = naming(link)
+    #title = naming('https://www.youtube.com/watch?v=lEAjwY5TAsE')
 
-    video = yt.streams.filter(adaptive=True).order_by('resolution').desc().first()
+    #video = yt.streams.filter(adaptive=True).order_by('resolution').desc().first()
     # video = yt.streams.filter(adaptive=True).order_by('resolution').first()
-    video_filename = 'video_' + title + '.webm'
-    print('Downloading "' + video_filename + '" with resolution', video.resolution)
+    #video_filename = 'video_' + title + '.webm'
+    #print('Downloading "' + video_filename + '" with resolution', video.resolution)
     # video.download(output_path='content/', filename=video_filename)
 
-    audio = yt.streams.filter(type='audio').order_by('abr').desc().first()
+    #audio = yt.streams.filter(type='audio').order_by('abr').desc().first()
     # audio = yt.streams.filter(type='audio').order_by('abr').first()
-    print('Downloading sound with bitrate', audio.abr)
+    #print('Downloading sound with bitrate', audio.abr)
     # audio_filename = 'audio_' + title + '.webm'
     # audio.download(output_path='content/', filename=audio_filename)
 

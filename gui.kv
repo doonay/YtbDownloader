@@ -1,0 +1,67 @@
+#: kivy 2.0.0
+#: import ew kivy.uix.effectwidget
+#: import KivyMD kivymd.app.MDApp
+
+<Screen>: #FloatLayout
+
+    link: link_kv
+    find: find_btn
+
+    FitImage:
+        source: 'assets/bg.jpg'
+
+    BoxLayout:
+        size_hint: 0.97, 0.97
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        spacing: 10
+        orientation: 'vertical'
+
+        BoxLayout:
+            size_hint: 1, .1
+            pos_hint: {'center_x': .5, 'top': 1}
+            #spacing: 10
+            orientation: 'horizontal'
+            Label:
+                size_hint: .2, 1
+                canvas.before:
+                    Color:
+                        rgba: (0.2, 0.745, 0.745, 1)
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                font_size: 18
+                text: 'Ссылка на видео:'
+            TextInput:
+                id: link_kv
+                size_hint: .7, 1
+                multiline: False
+                hint_text: 'http://'
+            Button:
+                id: find_btn
+                size_hint: .1, 1
+                text: 'Find'
+                on_release:
+                    root.find_video(root.link)
+
+        BoxLayout:
+            size_hint: 1, 1
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            spacing: 10
+            orientation: 'horizontal'
+
+            FitImage:
+                source: 'assets/bg.jpg'
+                size_hint: .7, 1
+                #pos_hint: {'center_x': .5, 'center_y': .5}
+
+            Button:
+                size_hint: .3, 1
+                pos_hint: {'center_x': .5, 'center_y': .5}
+
+
+        BoxLayout:
+            size_hint: 1, .08
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            #spacing: 10
+            #orientation: 'horizontal'
+            Button:
